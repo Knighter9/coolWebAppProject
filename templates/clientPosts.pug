@@ -1,0 +1,39 @@
+extend layout 
+
+append links
+    script(src='/js/modifyPosts.js')
+
+block navbar
+    +loggedInHeader(user_id)
+
+append pageContent 
+    .contentContainer
+        p#clientPostWelcome Your posts
+            
+        
+        .editFormPopup.editFormContainer.hide
+            h3 Edit The Post Below
+            textarea.editTextArea(name="message", cols="30", rows="10") 
+            button.cancel Cancel 
+            button.submit Submit
+            
+        .allPostsContainer
+            each post of posts 
+                .postContainer
+                    .post 
+                        p.content #{post.content}
+                        p.author #{post.username}
+                    .likes
+                        button(class=`editButton ${post.id}`) edit 
+                        button(class=`deleteButton ${post.id}`) delete
+                        p.likeCount likes= 
+                            span #{post.likes}
+               
+        
+        if page 
+            .footer 
+                if page>=2
+                    a(href="/users/" +  user_id + "/myPosts" + "?page=" + (page-1)) prev 
+                a(href="/?page="+(page) + "&order="+order) current
+                a(href= "/users/" +  user_id + "/myPosts" + "/?page="+(page+1)) next
+

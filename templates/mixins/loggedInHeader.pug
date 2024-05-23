@@ -1,0 +1,12 @@
+mixin loggedInHeader(user_id)
+    header.header
+        nav.navbar
+            div.hamburgerContainer
+                div.innerHamburgerContainer
+                    div.iconTop
+                    div.iconMiddle
+                    div.iconBottom 
+            div.linkContainer.hide
+                a(href="/") Home
+                a(href=`/users/${user_id}`) Account
+                a(href="/logout") Logout

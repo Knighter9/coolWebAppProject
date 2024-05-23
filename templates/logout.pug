@@ -1,0 +1,13 @@
+extend layout.pug 
+
+block navbar
+    +loggedInHeader(user_id)
+
+append pageContent 
+    // we will update this later so that we can add a favicon
+    .contentContainer
+        h1 Logout by clicking button below
+        .formContainer   
+            form(action="/logout", method="post")
+                .formElement
+                    input(type="submit")

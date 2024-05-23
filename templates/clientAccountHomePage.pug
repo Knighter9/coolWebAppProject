@@ -1,0 +1,13 @@
+extend layout 
+
+block navbar
+    +loggedInHeader(user_id)
+append pageContent 
+    .contentContainer
+        .welcomeOuterContainer 
+            h1 Hello #{username}
+            h2 View/Create/Edit Posts Below
+
+            .welcomeLinksContainer
+                a(href="/createPost") CreatePost
+                a(href="/users/" + user_id + "/myPosts") View and Edit/Delete Posts

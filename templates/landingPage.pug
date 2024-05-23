@@ -1,0 +1,14 @@
+extend layout.pug 
+
+    
+append pageContent 
+    // we will update this later so that we can add a favicon
+    .contentContainer
+        .imageContainer 
+            h1 Welcome to Blogger.IO 
+            img(src="images/logoImage.png", alt="logo for the website")
+        
+        .buttonContainer 
+            a(href="/login") Login 
+            a(href="/register") Register
+        

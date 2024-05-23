@@ -1,0 +1,32 @@
+include  mixins/loggedInHeader.pug
+doctype html
+html(lang="en")
+    head 
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        block title 
+            title default title 
+        
+        block links
+            link(rel="stylesheet", href="/css/main.css" type ="text/css")
+            script(src="/js/dropDownMenu.js")
+    body 
+        block navbar
+            header.header 
+                nav.navbar
+                    div.hamburgerContainer
+                        div.innerHamburgerContainer
+                            div.iconTop
+                            div.iconMiddle
+                            div.iconBottom 
+                    div.linkContainer.hide
+                        a(href="/login").login Login 
+                        a(href="/register").register Register
+                    
+            
+        div.bodyContent
+            div.mainBody
+                block pageContent
+
+            div.sideBar

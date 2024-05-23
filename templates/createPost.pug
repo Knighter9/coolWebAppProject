@@ -1,0 +1,18 @@
+extend layout.pug 
+
+append links
+    script(src='/js/post.js')
+
+block navbar
+    +loggedInHeader(user_id)
+
+append pageContent 
+    // we will update this later so that we can add a favicon
+    .contentContainer
+        h1 Enter Post Message Below
+        .formContainer
+            form(action="/api/addPost",method="post")
+                textarea(name="content", cols="30", rows="5")#postContent
+                input(type="submit")#submitPost
+    
+

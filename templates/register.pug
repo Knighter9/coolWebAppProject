@@ -1,0 +1,26 @@
+extend layout.pug 
+
+    
+append pageContent 
+    // we will update this later so that we can add a favicon
+
+    .contentContainer
+        .formContainer   
+            form(action="/register", method="post")
+                .formElement
+                    input#email(type="email" placeholder="name@domain.com", required name="email")
+
+                .formElement
+                    input#username(type="text", placeholder="name" required name="username")
+                
+                .formElement 
+                    input(type="password" placeholder="password" required name="password")
+                    
+                .formElement
+                    input(type="submit")
+        
+        .loginRegisterContainer
+            .buttonTextWrapper
+                h3 Already Have an Account? Login Below
+                a(href="/login") Login Here
+        

@@ -1,0 +1,34 @@
+extend layout 
+
+append links 
+    script(src='/js/viewPosts.js')
+
+block navbar 
+    +loggedInHeader(user_id)
+            
+append pageContent 
+    .contentContainer
+        .postsHeader 
+                a(href="/?order=hot").hot hot posts
+                a(href="/?order=recent").recent recent posts
+        
+
+        .allPostsContainer
+            each post of posts 
+                .postContainer
+                    .post 
+                        p.content #{post.content}
+                        p.author #{post.username}
+                    .likes
+                        button(class="likeButton", id=`${post.id}`) like
+                        p.likeCount likes= 
+                            span #{post.likes}
+                
+        
+        if page 
+            .footer 
+                if page>=2
+                    a(href="/?page="+(page-1) + "&order="+order) prev 
+                a(href="/?page="+(page) + "&order="+order) current
+                a(href="/?page="+(page+1) + "&order="+order) next
+
